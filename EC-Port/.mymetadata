@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="EC-Port"
+  id="myeclipse.1224834142890"
+  context-root="/EC-Port"
+  j2ee-spec="5.0"
+  archive="EC-Port.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,16 @@
+1  create database cz;
+2  use cz;
+3  set names gbk;
+	set character_set_database='gbk';
+	set character_set_server='gbk';
+4  create table category(
+	categoryid int(10),
+	name varchar(128) not null,
+	description varchar(512),
+	constraint category_id_pk primary key(categoryid)
+	);
+	insert into category(categoryid,name,description) values(1,'计算机', '软件与程序设计相关');
+	insert into category(categoryid,name,description) values(2,'英语', '英语相关图书');
+	insert into category(categoryid,name,description) values(3,'文学', '文学作品图书集');
+	commit;
+	select * from category;

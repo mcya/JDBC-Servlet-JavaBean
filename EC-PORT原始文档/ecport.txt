@@ -1,0 +1,143 @@
+﻿模块的划分：
+	商品列表模块
+		浏览商品列表
+		分页
+		商品详细信息
+	用户模块
+		用户登录
+			注册
+			修改联系方式
+			退出
+	购物车模块
+		列出购物车里的所有商品
+		加入商品
+		删除商品
+		修改商品的数量
+		生成订单
+		清空操作
+		统计商品价格
+	订单模块
+		列出用户的所有订单
+		删除订单（未处理订单）
+		订单明细
+	
+Catagory
+	id
+	name
+	desc
+	Set<Product>
+		
+Product
+	id
+	name
+	price
+	author
+	publish
+	pages
+	Catagory catagory
+	desc
+	image
+	
+User
+	username
+	password
+	ContactInfo info
+
+ContactInfo
+	User user
+	address1
+	address2
+	zipcode
+	hostphone
+	officephone
+	mobile
+	email
+
+OrderLine
+	product
+	amount	
+Shopcart
+	Map<procdutId, OrderLine>
+	sumcost
+
+Order
+	cost
+	status
+	PayWayStyle payway
+	User user
+	Set<OrderLine>
+	
+PayWayStyle
+	id
+	paystyle
+
+OrderStatus
+	id
+	name
+	desc
+	
+总体设计：
+	逻辑：db -> dao -> biz -> action ->jsp/html
+	物理：
+			应用服务器
+			数据库
+			浏览器
+			
+技术选型：
+	Struts+Hibernate+Jsp+JavaBean
+	Servlet/Jsp+JDBC
+	
+/ecport
+		index.jsp
+		/js
+		/image
+		/css
+		/user/
+		/product/
+		/order/
+		/shopcart/
+		/WEB-INF/
+				web.xml
+				struts-config.xml
+				/lib
+				/classes
+						/com/tarena/ecport/entity
+															/dao
+															/dao/impl
+															/biz
+															/biz/impl
+															/web
+															/web/form
+															/web/action
+															/web/filter
+															/web/listener
+															/util
+															
+															
+商品列表模块分析：
+	Catagory
+	Product 
+	
+	ProductDao
+	ProductDaoHbnImpl 
+	
+	ProductBiz
+	ProductBizImpl
+	
+	BeanFactory:加载顺序，先加载dao层，再加载biz层
+			public static void init();
+			public static Object getBean(String key);
+	bean.properties:
+			productDao=com.tarena.ecport.dao.impl.ProductDaoHbnImpl
+			ProductBiz=com.tarena.ecport.biz.impl.ProductBizImpl 
+			
+	ProductAction
+				
+				
+192.168.0.206
+sd0705/
+/ecport
+	
+	
+	
+		
